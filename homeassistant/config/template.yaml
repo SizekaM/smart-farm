@@ -1,0 +1,15 @@
+# VPD Sensor Template
+- sensor:
+    - name: "Tent VPD"
+      unique_id: tent_vpd
+      unit_of_measurement: "kPa"
+      state: >
+        {% set T = states('sensor.grow_tent_temperature') | float %}
+        {% set RH = states('sensor.grow_tent_humidity') | float %}
+        {% if T > 0 and RH > 0 %}
+          {% set es = 0.6108 * (2.718281828 ** ((17.27 * T) / (T + 237.3))) %}
+          {% set vpd = es * (1 - RH / 100) %}
+          {{ vpd | round(2) }}
+        {% else %}
+          unknown
+        {% endif %}

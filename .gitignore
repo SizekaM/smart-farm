@@ -1,0 +1,18 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+config/settings.yaml
+homeassistant/config/*
+!homeassistant/config/configuration.example.yaml
+!homeassistant/config/template.yaml
+homeassistant/www/
+# Python and runtime data
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.log
+*.db
+*.db-*
+.DS_Store

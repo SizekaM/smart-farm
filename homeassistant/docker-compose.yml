@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  homeassistant:
+    container_name: home_assistant
+    image: ghcr.io/home-assistant/home-assistant:stable
+    volumes:
+      - "./config:/config"
+      - "/etc/localtime:/etc/localtime:ro"
+      - ./www:/config/www
+    environment:
+      - TZ=Africa/Johannesburg
+    network_mode: host
+    restart: unless-stopped

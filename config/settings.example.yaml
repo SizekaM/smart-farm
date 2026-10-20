@@ -1,0 +1,15 @@
+# Copy to settings.yaml and configure your own MQTT broker and relay topics.
+mqtt:
+  host: "localhost"
+  port: 1883
+  topic_temperature: "mawe/growtent/temp"
+  topic_humidity: "mawe/growtent/humidity"
+  username: ""
+  password: ""
+
+sonoff:
+  # Used as the MQTT broker hostname by the existing relay controller.
+  host: "localhost"
+  relays:
+    fan: "cmnd/YOUR_SONOFF_DEVICE/POWER3"
+    heater: "cmnd/YOUR_SONOFF_DEVICE/POWER2"
